@@ -55,7 +55,7 @@ public:
     //Encrypts the data in specified document with a specified key and saves it
     void encrypt(string, int);
     //Unencrypts the data in specified document using specified key and saves it
-    void decrypt(string);
+    void decrypt(string, int);
     //Unecnrypts data in specified document using specified key and opens the file, but does not
     //save it post decryptions. When the file is closed it automatically is reencrypted.
     //Thus, opens a single instance of the unencrypted file for user with the key to read data

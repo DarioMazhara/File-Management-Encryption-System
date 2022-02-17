@@ -27,6 +27,12 @@ int main(int argc, const char * argv[]) {
     p1->write("Info", "My name is Dario Mazhara. I am 20 years old and living in Walnut Creek, California");
     
     p1->encrypt("Info", 50);
+    
+    p1->open("Info_encrypted");
+    
+    p1->decrypt("Info", 40);
+    
+    p1->open("Info");
    
     
 //    p1->open("Info");

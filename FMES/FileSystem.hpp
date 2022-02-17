@@ -29,5 +29,7 @@ public:
     static void write_file(string, string);
     
     static void encrypt_file(string, string, int);
+    
+    static void decrypt_file(string, string, int);
 };
 #endif /* FileSystem_hpp */

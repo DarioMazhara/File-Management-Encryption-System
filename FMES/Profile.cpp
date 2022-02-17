@@ -40,3 +40,9 @@ void Profile::encrypt(string file_name, int key) {
     
     cout << file_name << " encrypted using key: " << key << endl;
 }
+
+void Profile::decrypt(string file_name, int key) {
+    FileSystem::decrypt_file(file_name, this->path, key);
+    
+    cout << file_name << " decrypted using key: " << key << endl;
+}

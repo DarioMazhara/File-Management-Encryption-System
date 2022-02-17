@@ -51,6 +51,28 @@ void FileSystem::encrypt_file(string file_name, string file_dir, int key) {
         fout << (char)temp;
     }
     
+    FileSystem::remove_file(file_dir+"/"+file_name);
+    
     fin.close();
     fout.close();
+}
+
+void FileSystem::decrypt_file(string file_name, string file_dir, int key) {
+    fstream in, out;
+    
+    in.open(file_dir+"/"+file_name+"_encrypted", fstream::in);
+    out.open(file_dir+"/"+file_name, fstream::out);
+    
+    char c;
+    
+    while (in >> noskipws >> c) {
+        int temp = (c - key);
+        
+        out << (char)temp;
+    }
+    
+    FileSystem::remove_file(file_dir+"/"+file_name+"_encrypted");
+    
+    in.close();
+    out.close();
 }
