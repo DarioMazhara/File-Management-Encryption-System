@@ -1,0 +1,12 @@
+Project overview
+
+FMES = File Management & Encryption System
+
+Plan:
+
+To create a console application that allows the creation of multiple profiles.
+Each profile can create document, add content to it, and save it.
+The profile can also reopen this document to read it.
+However, you can also encrypt the file. When encrypting, the user can choose to either
+create a unique key for that specific file, or save it under a common keychain password that unecrypts all files
+Once the user encrypts the content of the file, the file is then resaved in the folder under their profile name and the content in the file is in an unreadable encrypted format. If anyone were to manually access their folder and open the file, the data would be unreadable. To read the data, one must run the FMES program in the terminal, enter their profile file system, select the file, and select decrypt. They will be prompted to enter a key which will be used to decrypt the file. Once the enter the key, the system will use the key on the data and then open the file for the user to read. If the key was incorrect, the decrypted data will still be unreadable as the key that was put into the algorithm did not reverse the encrption process back to the original text, but rather into a random collection of text that would have been the original text needed for the incorrect key to decrypt.
