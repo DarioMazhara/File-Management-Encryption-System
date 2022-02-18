@@ -26,15 +26,27 @@ int main(int argc, const char * argv[]) {
     
     p1->write("Info", "My name is Dario Mazhara. I am 20 years old and living in Walnut Creek, California");
     
-    p1->encrypt("Info", 50);
+    p1->encrypt("Info", 1);
     
-    p1->open("Info_encrypted");
-    
-    p1->decrypt("Info", 40);
+    p1->decrypt("Info", 1);
     
     p1->open("Info");
-   
     
+  //  p1->decrypt("Info", 1);
+//    p1->decrypt("Info", 1);
+    
+  //  p1->open("Info");
+    
+    
+    
+    
+   // cout << "MAIN: " << p1->file_access["Info"]->file_name << endl;
+    
+ //   p1->open("Info");
+    
+//    p1->decrypt("Info_encrypted", 50);
+    
+//    p1->open("Info");
 //    p1->open("Info");
     
  //   p1->remove("Info");

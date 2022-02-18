@@ -21,7 +21,9 @@ void FileSystem::open_file(string path) {
     
     cmd += path;
     
-    system(cmd.c_str());
+    cout << path << endl;
+    
+  //  system(cmd.c_str());
 }
 
 void FileSystem::remove_file(string path) {
@@ -38,11 +40,13 @@ void FileSystem::write_file(string path, string edit) {
     stream.close();
 }
 
-void FileSystem::encrypt_file(string file_name, string file_dir, int key) {
+void FileSystem::encrypt_file(File* file, string file_dir, int key) {
     fstream fin, fout;
     
-    fin.open(file_dir+"/"+file_name, fstream::in);
-    fout.open(file_dir+"/"+file_name+"_encrypted", fstream::out);
+    cout << "filesystem: " << file->file_name << endl;
+    
+    fin.open(file_dir+"/"+file->file_name, fstream::in);
+    fout.open(file_dir+"/"+file->file_name+"_encrypted", fstream::out);
     char c;
     
     while (fin >> noskipws >> c) {
@@ -50,18 +54,22 @@ void FileSystem::encrypt_file(string file_name, string file_dir, int key) {
         
         fout << (char)temp;
     }
+    string temp = file->file_name;
+    FileSystem::remove_file(file_dir+"/"+file->file_name);
+    file->file_name = temp+"_encrypted";
     
-    FileSystem::remove_file(file_dir+"/"+file_name);
-    
+    cout << "fs 2: " << file->file_name << endl;
     fin.close();
     fout.close();
 }
 
-void FileSystem::decrypt_file(string file_name, string file_dir, int key) {
+void FileSystem::decrypt_file(File* file, string file_dir, int key) {
     fstream in, out;
+    ofstream output;
     
-    in.open(file_dir+"/"+file_name+"_encrypted", fstream::in);
-    out.open(file_dir+"/"+file_name, fstream::out);
+    cout << "START: " << file->file_name << endl;
+    in.open(file_dir+"/"+file->file_name, fstream::in);
+    out.open(file_dir+"/temp", fstream::out);
     
     char c;
     
@@ -71,8 +79,42 @@ void FileSystem::decrypt_file(string file_name, string file_dir, int key) {
         out << (char)temp;
     }
     
-    FileSystem::remove_file(file_dir+"/"+file_name+"_encrypted");
+    string to_modify_name = file->file_name;
     
+    FileSystem::remove_file(file_dir+"/"+file->file_name);
+    
+    unsigned long encryp_suffix_location = to_modify_name.find("_encrypted");
+    
+    string decrypted_name = to_modify_name.erase(encryp_suffix_location, 10);
+    
+   // output.open(file_dir+"/"+decrypted_name);
+    string oldname = file_dir+"/temp";
+    unsigned long n_old = oldname.length();
+    string newname = file_dir+"/"+decrypted_name;
+    unsigned long n_new = newname.length();
+    
+    char old[n_old+1];
+    char newer[n_new+1];
+    
+    strcpy(old, oldname.c_str());
+    strcpy(newer, newname.c_str());
+    
+    rename(old, newer);
+    
+    
+    file->file_name = decrypted_name;
+    
+    
+   /* unsigned long encryp_suffix = file->file_name.find("_encrypted");
+    
+    
+    string temp = (file->file_name);
+    
+    cout << "!!!!! " << file->file_name << endl;
+    FileSystem::remove_file(file_dir+"/"+file->file_name);
+    cout << "!!!!! " << file->file_name << endl;
+    
+    file->file_name = temp.erase(encryp_suffix, 10);
     in.close();
-    out.close();
+    out.close();*/
 }

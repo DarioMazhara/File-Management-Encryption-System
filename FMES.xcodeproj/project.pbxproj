@@ -10,7 +10,6 @@
 		A36DEA0027BC32F700E66831 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A36DE9FF27BC32F700E66831 /* main.cpp */; };
 		A36DEA0927BC376300E66831 /* Profile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A36DEA0727BC376300E66831 /* Profile.cpp */; };
 		A36DEA0C27BC37B600E66831 /* File.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A36DEA0A27BC37B600E66831 /* File.cpp */; };
-		A36DEA0F27BC37EE00E66831 /* EncryptionHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A36DEA0D27BC37EE00E66831 /* EncryptionHandler.cpp */; };
 		A3E8FCE927BD107F004542E6 /* FileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E8FCE727BD107F004542E6 /* FileSystem.cpp */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +33,6 @@
 		A36DEA0827BC376300E66831 /* Profile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Profile.hpp; sourceTree = "<group>"; };
 		A36DEA0A27BC37B600E66831 /* File.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = File.cpp; sourceTree = "<group>"; };
 		A36DEA0B27BC37B600E66831 /* File.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = File.hpp; sourceTree = "<group>"; };
-		A36DEA0D27BC37EE00E66831 /* EncryptionHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EncryptionHandler.cpp; sourceTree = "<group>"; };
-		A36DEA0E27BC37EE00E66831 /* EncryptionHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EncryptionHandler.hpp; sourceTree = "<group>"; };
 		A36DEA1327BD03CD00E66831 /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
 		A3E8FCE727BD107F004542E6 /* FileSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileSystem.cpp; sourceTree = "<group>"; };
 		A3E8FCE827BD107F004542E6 /* FileSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileSystem.hpp; sourceTree = "<group>"; };
@@ -80,8 +77,6 @@
 				A36DEA0827BC376300E66831 /* Profile.hpp */,
 				A36DEA0A27BC37B600E66831 /* File.cpp */,
 				A36DEA0B27BC37B600E66831 /* File.hpp */,
-				A36DEA0D27BC37EE00E66831 /* EncryptionHandler.cpp */,
-				A36DEA0E27BC37EE00E66831 /* EncryptionHandler.hpp */,
 			);
 			path = FMES;
 			sourceTree = "<group>";
@@ -155,7 +150,6 @@
 				A36DEA0027BC32F700E66831 /* main.cpp in Sources */,
 				A36DEA0927BC376300E66831 /* Profile.cpp in Sources */,
 				A3E8FCE927BD107F004542E6 /* FileSystem.cpp in Sources */,
-				A36DEA0F27BC37EE00E66831 /* EncryptionHandler.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 #define Profile_hpp
 
 #include <stdio.h>
-#include "File.hpp"
+#include "FileSystem.hpp"
 #include <unordered_map>
 #include <map>
 #include <string>
@@ -26,21 +26,20 @@ class Profile {
 private:
     map<string, list<string>> keychain;
     using FileMap = map<string, File*>;
-    FileMap file_access;
-    FileMap unencrypted_access;
     
     string profile_name;
     const string base_path = "/Users/dario/Desktop/Profiles/";
     
     File* current_file;
 public:
+    FileMap file_access;
     string path;
     Profile(string name) {
         file_access = {};
-        unencrypted_access = {};
         current_file = NULL;
         this->profile_name = name;
         this->path = base_path + profile_name;
+        
         mkdir(this->path.c_str(), S_IRWXU);
     }
     

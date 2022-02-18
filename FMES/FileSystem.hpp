@@ -13,7 +13,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
+#include "File.hpp"
 using namespace std;
 
 static ofstream stream;
@@ -28,8 +28,8 @@ public:
     
     static void write_file(string, string);
     
-    static void encrypt_file(string, string, int);
+    static void encrypt_file(File*, string, int);
     
-    static void decrypt_file(string, string, int);
+    static void decrypt_file(File*, string, int);
 };
 #endif /* FileSystem_hpp */

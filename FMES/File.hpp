@@ -13,18 +13,19 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include "FileSystem.hpp"
+
 
 using namespace std;
+
 class File {
 public:
     string file_name;
-    fstream file_stream;
+    bool encrypted;
     
     File(string file_name, string path) {
         this->file_name = file_name;
-        
-        FileSystem::create_file(path+"/"+file_name);
+        encrypted = false;
+    //    FileSystem::create_file(path+"/"+file_name);
     }
     
 };
