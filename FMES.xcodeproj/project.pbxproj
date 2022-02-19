@@ -11,6 +11,7 @@
 		A36DEA0927BC376300E66831 /* Profile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A36DEA0727BC376300E66831 /* Profile.cpp */; };
 		A36DEA0C27BC37B600E66831 /* File.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A36DEA0A27BC37B600E66831 /* File.cpp */; };
 		A3E8FCE927BD107F004542E6 /* FileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E8FCE727BD107F004542E6 /* FileSystem.cpp */; };
+		A3E8FCEB27BF8C80004542E6 /* Interpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E8FCEA27BF8C80004542E6 /* Interpreter.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +37,7 @@
 		A36DEA1327BD03CD00E66831 /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
 		A3E8FCE727BD107F004542E6 /* FileSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileSystem.cpp; sourceTree = "<group>"; };
 		A3E8FCE827BD107F004542E6 /* FileSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileSystem.hpp; sourceTree = "<group>"; };
+		A3E8FCEA27BF8C80004542E6 /* Interpreter.cpp */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.cpp.cpp; path = Interpreter.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		A36DE9FE27BC32F700E66831 /* FMES */ = {
 			isa = PBXGroup;
 			children = (
+				A3E8FCEA27BF8C80004542E6 /* Interpreter.cpp */,
 				A3E8FCE727BD107F004542E6 /* FileSystem.cpp */,
 				A3E8FCE827BD107F004542E6 /* FileSystem.hpp */,
 				A36DE9FF27BC32F700E66831 /* main.cpp */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A36DEA0C27BC37B600E66831 /* File.cpp in Sources */,
+				A3E8FCEB27BF8C80004542E6 /* Interpreter.cpp in Sources */,
 				A36DEA0027BC32F700E66831 /* main.cpp in Sources */,
 				A36DEA0927BC376300E66831 /* Profile.cpp in Sources */,
 				A3E8FCE927BD107F004542E6 /* FileSystem.cpp in Sources */,
@@ -268,7 +272,9 @@
 		A36DEA0427BC32F700E66831 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
+				GCC_VERSION = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -276,7 +282,9 @@
 		A36DEA0527BC32F700E66831 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
+				GCC_VERSION = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

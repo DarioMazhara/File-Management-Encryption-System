@@ -27,11 +27,12 @@ private:
     map<string, list<string>> keychain;
     using FileMap = map<string, File*>;
     
-    string profile_name;
-    const string base_path = "/Users/dario/Desktop/Profiles/";
+    
     
     File* current_file;
 public:
+    string profile_name;
+    const string base_path = "/Users/dario/Desktop/Profiles/";
     FileMap file_access;
     string path;
     Profile(string name) {
@@ -39,6 +40,8 @@ public:
         current_file = NULL;
         this->profile_name = name;
         this->path = base_path + profile_name;
+        
+        cout << "profile: " << this->path << endl;
         
         mkdir(this->path.c_str(), S_IRWXU);
     }

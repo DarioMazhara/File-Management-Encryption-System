@@ -11,6 +11,7 @@
 void FileSystem::create_file(string name) {
     ofstream file;
     
+    
     file.open(name);
     
     file.close();
@@ -23,7 +24,7 @@ void FileSystem::open_file(string path) {
     
     cout << path << endl;
     
-  //  system(cmd.c_str());
+    system(cmd.c_str());
 }
 
 void FileSystem::remove_file(string path) {
@@ -40,13 +41,13 @@ void FileSystem::write_file(string path, string edit) {
     stream.close();
 }
 
-void FileSystem::encrypt_file(File* file, string file_dir, int key) {
+void FileSystem::encrypt_file(File* file, int key) {
     fstream fin, fout;
     
     cout << "filesystem: " << file->file_name << endl;
     
-    fin.open(file_dir+"/"+file->file_name, fstream::in);
-    fout.open(file_dir+"/"+file->file_name+"_encrypted", fstream::out);
+    fin.open(file->file_name, fstream::in);
+    fout.open(file->file_name+"_encrypted", fstream::out);
     char c;
     
     while (fin >> noskipws >> c) {
@@ -55,7 +56,7 @@ void FileSystem::encrypt_file(File* file, string file_dir, int key) {
         fout << (char)temp;
     }
     string temp = file->file_name;
-    FileSystem::remove_file(file_dir+"/"+file->file_name);
+    FileSystem::remove_file(file->file_name);
     file->file_name = temp+"_encrypted";
     
     cout << "fs 2: " << file->file_name << endl;
@@ -67,8 +68,8 @@ void FileSystem::decrypt_file(File* file, string file_dir, int key) {
     fstream in, out;
     ofstream output;
     
-    cout << "START: " << file->file_name << endl;
-    in.open(file_dir+"/"+file->file_name, fstream::in);
+    cout << "STARdddddddddddT: " << file->file_name << endl;
+    in.open(file->file_name, fstream::in);
     out.open(file_dir+"/temp", fstream::out);
     
     char c;
@@ -81,7 +82,7 @@ void FileSystem::decrypt_file(File* file, string file_dir, int key) {
     
     string to_modify_name = file->file_name;
     
-    FileSystem::remove_file(file_dir+"/"+file->file_name);
+    FileSystem::remove_file(file->file_name);
     
     unsigned long encryp_suffix_location = to_modify_name.find("_encrypted");
     
@@ -90,7 +91,7 @@ void FileSystem::decrypt_file(File* file, string file_dir, int key) {
    // output.open(file_dir+"/"+decrypted_name);
     string oldname = file_dir+"/temp";
     unsigned long n_old = oldname.length();
-    string newname = file_dir+"/"+decrypted_name;
+    string newname = decrypted_name;
     unsigned long n_new = newname.length();
     
     char old[n_old+1];

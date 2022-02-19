@@ -14,7 +14,6 @@
 #include <iostream>
 #include <string>
 
-
 using namespace std;
 
 class File {
@@ -23,9 +22,8 @@ public:
     bool encrypted;
     
     File(string file_name, string path) {
-        this->file_name = file_name;
+        this->file_name = path+"/"+file_name;
         encrypted = false;
-    //    FileSystem::create_file(path+"/"+file_name);
     }
     
 };
