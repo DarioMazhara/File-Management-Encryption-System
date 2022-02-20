@@ -21,8 +21,10 @@ int main(int argc, const char * argv[]) {
     
     Profile* rose = new Profile("Rose");
     
+    rose->new_file("Testfile");
     
-   // Interpreter* interpreter = new Interpreter(rose);
+    rose->write("Testfile", "blah blah blah negro");
+    Interpreter* interpreter = new Interpreter(rose);
     
     
     
