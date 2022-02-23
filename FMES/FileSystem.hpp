@@ -28,8 +28,10 @@ public:
     
     static void write_file(string, string);
     
-    static void encrypt_file(File*, int);
+    static void encrypt_file(File&, int);
     
-    static void decrypt_file(File*, string, int);
+    static void decrypt_file(File&, string, int);
+    
+    
 };
 #endif /* FileSystem_hpp */

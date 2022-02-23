@@ -24,17 +24,22 @@ using namespace std;
 
 class Profile {
 private:
-    map<string, list<string>> keychain;
     using FileMap = map<string, File*>;
     
     
     
     File* current_file;
+    
+
+    
+ 
 public:
+    map<string, int> directories;
     string profile_name;
-    const string base_path = "/Users/dario/Desktop/Profiles/";
+    string base_path = "/Users/dario/Desktop/Profiles/";
     FileMap file_access;
     string path;
+ 
     Profile(string name) {
         file_access = {};
         current_file = NULL;
@@ -62,9 +67,9 @@ public:
     //save it post decryptions. When the file is closed it automatically is reencrypted.
     //Thus, opens a single instance of the unencrypted file for user with the key to read data
     //without decrypting the file first, then encrypting it again after closing document
-    void view_single_instance_unencrypted(string, string);
+    void view_single_instance_unencrypted(string, int); //view_single
     
-    
+   
     
 };
 

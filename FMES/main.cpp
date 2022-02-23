@@ -16,17 +16,20 @@
 #include "Interpreter.cpp"
 
 using namespace std;
+void write(Profile profile, string file, string data) {
+    
+    profile.write(file, data);
+}
 int main(int argc, const char * argv[]) {
     
     
     Profile* rose = new Profile("Rose");
     
-    rose->new_file("Testfile");
-    
-    rose->write("Testfile", "blah blah blah negro");
-    Interpreter* interpreter = new Interpreter(rose);
-    
-    
+   
+ //   rose->write("Testfile", "blah blah blah negro");
+    Interpreter* interpreter = new Interpreter(*rose);
     
     return 0;
 }
+
+
