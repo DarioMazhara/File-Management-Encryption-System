@@ -15,8 +15,8 @@
 #include <vector>
 #include <unordered_map>
 #include <memory>
-#include "FileSystem.hpp"
-#include "Profile.hpp"
+
+#include "SystemMemory.hpp"
 #include <string.h>
 #include <any>
 #include <functional>
@@ -49,20 +49,20 @@ public:
    //ex: "open" "file"
    //"write" "file" "blah blah blah"
    //"encrypt" "file" 5
+   
                                              //optional parameters
-   void execute(Profile& profile_ref, string command, string param, string param2=0, int param2_1=0) {
+   void execute(Profile& profile_ref, string command, string param, string param2=0) {
       Profile* profile = &profile_ref;
       if (command == "open") {
-         cout << "execute!" << endl;
          FileSystem::open_file(param);
          return;
       }
       else if(command == "create") {
          string file_name = param.substr(profile->base_path.length() + profile->profile_name.length()+1);
         
-         cout << profile->path << " PATH" << endl;
          profile->new_file(file_name);
          
+         SystemMemory::record_file(profile, profile->file_access[file_name]);
          cout << "in create: " << profile->file_access[file_name]->file_name << endl;
       }
       else if(command == "write") {
@@ -73,19 +73,22 @@ public:
       else if(command == "encrypt") {
          string file_name = param.substr(profile->base_path.length() + profile->profile_name.length()+1);
          
-         cout << file_name << endl;
-         profile->encrypt(file_name, 5);
+         profile->encrypt(file_name, stoi(param2));
          
          return;
       }
       else if (command == "decrypt") {
- //        profile->decrypt(param, param2_1);
+         string file_name = param.substr(profile->base_path.length() + profile->profile_name.length() + 1);
+         
+         profile->decrypt(file_name, stoi(param2));
          return;
       }
       else if (command == "delete") {
          FileSystem::remove_file(param);
          return;
       }
+      
+      
       
    }
 
@@ -102,12 +105,18 @@ public:
    
    Profile* profile;
    
+   
 
-    Interpreter(Profile &current_user) {
+    Interpreter() {
+       
+       string name;
+       
+       cin >> name;
+       
+       profile = new Profile(name);
        
        
-       profile = &current_user;
-       
+       SystemMemory::record_profile(profile);
        
        
        
@@ -125,6 +134,14 @@ public:
      
     //   operations["write"]->execute("Dario", "dario");
        while (input != "exit") {
+          
+          if (input == "logout") {
+             profile = NULL;
+             cout << "Enter profile: " << endl;
+             cin >> name;
+             profile = new Profile(name);
+             
+          }
           getline(cin, input);
         
           parse(profile, input);
@@ -133,8 +150,7 @@ public:
     
     void parse(Profile* profile, string input) {
        
-       cout << "parse: " << profile->profile_name << endl;
-       cout << "PARSE" << endl;
+      
        istringstream ss(input);
        
        
@@ -143,7 +159,7 @@ public:
        int i = 0;
        
        while (ss >> command[i]) {
-          cout << command[i++] << endl;
+          i++;
        }
        
        execute(profile, command);
@@ -157,23 +173,20 @@ public:
          result += arr[i] + " ";
       }
       
-      cout << "Result: " << result << endl;
+
       return result;
    }
    
    void execute(Profile* profile, string command[100]) {
-      
-      cout << "execute: " << profile->profile_name << endl;
-      
-      cout << "123: " << profile->base_path << endl;
+
  
       cout << command[2].empty() << endl;
       //command format: [command] [file name] [if applicable second parameter (ex: key, new data to write)]
       
       //saves the second word of the command, which is the file name, and saves it into variable param
-      cout << "Before param\n";
+      
       string param = profile->path + "/" + command[1];
-      cout << "After param\n";
+      
       
       //initalize another param variable to hold the third argument of the command, which is a key or text to write, in case
       //it requires a declaration
@@ -191,13 +204,13 @@ public:
       cout << param2 << endl;
       
       if (param2.empty()) {
-         cout << "if statement\n";
+         
          cout << command[0] << " " << param << " " << param2 << endl;
          operations[command[0]]->execute(*profile, command[0], param, param2);
       }
       //if there is a second argument, then run only those commands that take a second parameter
       else {
-         cout << "else statement\n";
+         
          operations[command[0]]->execute(*profile, command[0], param, param2);
       }
       

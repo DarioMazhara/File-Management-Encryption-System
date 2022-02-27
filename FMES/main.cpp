@@ -10,9 +10,11 @@
 #include <fstream>
 #include <sys/stat.h>
 
-#include "Profile.hpp"
+
 
 #include <stdlib.h>
+
+#include "SystemMemory.hpp"
 #include "Interpreter.cpp"
 
 using namespace std;
@@ -22,12 +24,11 @@ void write(Profile profile, string file, string data) {
 }
 int main(int argc, const char * argv[]) {
     
+  
     
-    Profile* rose = new Profile("Rose");
     
-   
- //   rose->write("Testfile", "blah blah blah negro");
-    Interpreter* interpreter = new Interpreter(*rose);
+
+    Interpreter* interpreter = new Interpreter();
     
     return 0;
 }

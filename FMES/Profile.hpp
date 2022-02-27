@@ -20,7 +20,11 @@
 #include <sys/types.h>
 
 
+#pragma twice
+
+
 using namespace std;
+
 
 class Profile {
 private:
@@ -30,7 +34,7 @@ private:
     
     File* current_file;
     
-
+    
     
  
 public:
@@ -49,10 +53,13 @@ public:
         cout << "profile: " << this->path << endl;
         
         mkdir(this->path.c_str(), S_IRWXU);
+        
+        
+        
     }
     
     //Creates a new file with a name given by parameter
-    void new_file(string);
+    File& new_file(string);
     //Opens the file text document and allows user to enter data; saved upon closing
     void write(string, string);
     //Opens the text document; not saved if any data is modified
@@ -70,6 +77,7 @@ public:
     void view_single_instance_unencrypted(string, int); //view_single
     
    
+    
     
 };
 

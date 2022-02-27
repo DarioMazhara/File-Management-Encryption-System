@@ -8,6 +8,7 @@
 
 #include "FileSystem.hpp"
 
+
 void FileSystem::create_file(string name) {
     ofstream file;
     
@@ -15,6 +16,7 @@ void FileSystem::create_file(string name) {
     file.open(name);
     
     file.close();
+    
 }
 
 void FileSystem::open_file(string path) {
@@ -44,7 +46,8 @@ void FileSystem::write_file(string path, string edit) {
 void FileSystem::encrypt_file(File& file, int key) {
     fstream fin, fout;
     
-    cout << "filesystem: " << file.file_name << endl;
+    
+
     
     fin.open(file.file_name, fstream::in);
     fout.open(file.file_name+"_encrypted", fstream::out);
@@ -56,54 +59,53 @@ void FileSystem::encrypt_file(File& file, int key) {
         fout << (char)temp;
     }
     string temp = file.file_name;
+        
     FileSystem::remove_file(file.file_name);
     file.file_name = temp+"_encrypted";
     
-    cout << "fs 2: " << file.file_name << endl;
+    
     fin.close();
     fout.close();
 }
 
 void FileSystem::decrypt_file(File& file, string file_dir, int key) {
     fstream in, out;
-    ofstream output;
     
-    cout << "STARdddddddddddT: " << file.file_name << endl;
+    string temp = file.file_name;
+    
+    unsigned long encryp_suffix_location = temp.find("_encrypted");
+    
+    string decrypted_name = temp.erase(encryp_suffix_location, 10);
+    
+
+        
     in.open(file.file_name, fstream::in);
-    out.open(file_dir+"/temp", fstream::out);
+    out.open(decrypted_name, fstream::out);
     
     char c;
     
     while (in >> noskipws >> c) {
         int temp = (c - key);
         
+        
         out << (char)temp;
     }
-    
-    string to_modify_name = file.file_name;
+    out.close();
     
     FileSystem::remove_file(file.file_name);
     
-    unsigned long encryp_suffix_location = to_modify_name.find("_encrypted");
-    
-    string decrypted_name = to_modify_name.erase(encryp_suffix_location, 10);
-    
-   // output.open(file_dir+"/"+decrypted_name);
-    string oldname = file_dir+"/temp";
-    unsigned long n_old = oldname.length();
-    string newname = decrypted_name;
-    unsigned long n_new = newname.length();
-    
-    char old[n_old+1];
-    char newer[n_new+1];
-    
-    strcpy(old, oldname.c_str());
-    strcpy(newer, newname.c_str());
-    
-    rename(old, newer);
-    
-    
     file.file_name = decrypted_name;
+    
+//    FileSystem::remove_file(file.file_name);
+    
+ //   unsigned long encryp_suffix_location = to_modify_name.find("_encrypted");
+    
+//    string decrypted_name = to_modify_name.erase(encryp_suffix_location, 10);
+    
+    
+    
+    
+    
     
     
    /* unsigned long encryp_suffix = file.file_name.find("_encrypted");

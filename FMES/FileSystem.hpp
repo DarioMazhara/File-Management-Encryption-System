@@ -14,6 +14,8 @@
 #include <fstream>
 #include <string>
 #include "File.hpp"
+
+
 using namespace std;
 
 static ofstream stream;
@@ -31,6 +33,7 @@ public:
     static void encrypt_file(File&, int);
     
     static void decrypt_file(File&, string, int);
+    
     
     
 };

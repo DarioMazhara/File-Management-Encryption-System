@@ -14,6 +14,7 @@
 #include <iostream>
 #include <string>
 
+
 using namespace std;
 
 class File {
@@ -25,6 +26,7 @@ public:
         this->file_name = path+"/"+file_name;
         encrypted = false;
     }
+    
     
 };
 #endif /* File_hpp */

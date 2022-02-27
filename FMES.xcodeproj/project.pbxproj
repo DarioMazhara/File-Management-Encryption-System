@@ -10,7 +10,8 @@
 		A36DEA0027BC32F700E66831 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A36DE9FF27BC32F700E66831 /* main.cpp */; };
 		A36DEA0927BC376300E66831 /* Profile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A36DEA0727BC376300E66831 /* Profile.cpp */; };
 		A36DEA0C27BC37B600E66831 /* File.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A36DEA0A27BC37B600E66831 /* File.cpp */; };
-		A38EA17E27C62BFF003A3B4E /* FMES.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A38EA17D27C62BFF003A3B4E /* FMES.cpp */; };
+		A370591027C7AD99002B09EF /* FMES.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A370590E27C7AD99002B09EF /* FMES.cpp */; };
+		A38EA18327C69E2C003A3B4E /* SystemMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A38EA18127C69E2C003A3B4E /* SystemMemory.cpp */; };
 		A3E8FCE927BD107F004542E6 /* FileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E8FCE727BD107F004542E6 /* FileSystem.cpp */; };
 		A3E8FCEB27BF8C80004542E6 /* Interpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E8FCEA27BF8C80004542E6 /* Interpreter.cpp */; };
 /* End PBXBuildFile section */
@@ -36,7 +37,10 @@
 		A36DEA0A27BC37B600E66831 /* File.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = File.cpp; sourceTree = "<group>"; };
 		A36DEA0B27BC37B600E66831 /* File.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = File.hpp; sourceTree = "<group>"; };
 		A36DEA1327BD03CD00E66831 /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
-		A38EA17D27C62BFF003A3B4E /* FMES.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FMES.cpp; sourceTree = "<group>"; };
+		A370590E27C7AD99002B09EF /* FMES.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FMES.cpp; sourceTree = "<group>"; };
+		A370590F27C7AD99002B09EF /* FMES.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FMES.hpp; sourceTree = "<group>"; };
+		A38EA18127C69E2C003A3B4E /* SystemMemory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemMemory.cpp; sourceTree = "<group>"; };
+		A38EA18227C69E2C003A3B4E /* SystemMemory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SystemMemory.hpp; sourceTree = "<group>"; };
 		A3E8FCE727BD107F004542E6 /* FileSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileSystem.cpp; sourceTree = "<group>"; };
 		A3E8FCE827BD107F004542E6 /* FileSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileSystem.hpp; sourceTree = "<group>"; };
 		A3E8FCEA27BF8C80004542E6 /* Interpreter.cpp */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.cpp.cpp; path = Interpreter.cpp; sourceTree = "<group>"; };
@@ -73,9 +77,12 @@
 		A36DE9FE27BC32F700E66831 /* FMES */ = {
 			isa = PBXGroup;
 			children = (
+				A370590E27C7AD99002B09EF /* FMES.cpp */,
+				A370590F27C7AD99002B09EF /* FMES.hpp */,
 				A3E8FCEA27BF8C80004542E6 /* Interpreter.cpp */,
 				A3E8FCE727BD107F004542E6 /* FileSystem.cpp */,
-				A38EA17D27C62BFF003A3B4E /* FMES.cpp */,
+				A38EA18127C69E2C003A3B4E /* SystemMemory.cpp */,
+				A38EA18227C69E2C003A3B4E /* SystemMemory.hpp */,
 				A3E8FCE827BD107F004542E6 /* FileSystem.hpp */,
 				A36DE9FF27BC32F700E66831 /* main.cpp */,
 				A36DEA0627BC332B00E66831 /* Overview */,
@@ -152,8 +159,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A38EA17E27C62BFF003A3B4E /* FMES.cpp in Sources */,
 				A36DEA0C27BC37B600E66831 /* File.cpp in Sources */,
+				A370591027C7AD99002B09EF /* FMES.cpp in Sources */,
+				A38EA18327C69E2C003A3B4E /* SystemMemory.cpp in Sources */,
 				A3E8FCEB27BF8C80004542E6 /* Interpreter.cpp in Sources */,
 				A36DEA0027BC32F700E66831 /* main.cpp in Sources */,
 				A36DEA0927BC376300E66831 /* Profile.cpp in Sources */,
